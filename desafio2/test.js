@@ -28,12 +28,12 @@ const productoNuevo4 = {
 
 const ejecutar = async () => {
       /* poner el producto a agregar* en el metodo save */
-      await productos.save(productoNuevo2);
-      /* await productos.getAll(); */
+      await productos.save(productoNuevo3);
+      await productos.getAll();
       /*poner la id a buscar , solo numeros  en el metodo getById */
-      /* await productos.getById(); */
+      /* await productos.getById(2); */
       /*poner la id a eliminar , solo numeros en el metodo deleteById */
-      /* await productos.deleteById(); */
+      /* await productos.deleteById(3); */
       /* await productos.deleteAll(); */
 };
 ejecutar();
