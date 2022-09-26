@@ -1,0 +1,58 @@
+<%- include('partials/links-cdn-css-head') %>
+  <title>Formulario</title>
+  </head>
+
+  <body>
+    <main class="container mt-5 pt-5 pb-5">
+      <div class="text-center mb-5">
+        <h1>Agrega un producto</h1>
+      </div>
+
+      <form action="<%= detailUrlBase %>/api/productos" method="post"
+        class="row g-3 flex-column was-validated justify-content-center align-items-center mt-5" novalidate>
+        <div class="form-floating col-md-4">
+          <input type="text" class="form-control" id="floatingTitle" placeholder="Nombre" name="title" required>
+          <label for="floatingTitle">Nombres</label>
+        </div>
+        <div class="form-floating col-md-4">
+
+          <input type="number" class="form-control" id="floatingPrice" placeholder="Precio" name="price" required>
+          <label for="floatingPrice">Precio</label>
+        </div>
+        <div class="form-floating col-md-4">
+          <input type="text" class="form-control" id="floatingImg" placeholder="imagen" name="thumbnail" required>
+          <label for="floatingImg">Link a la imagen</label>
+        </div>
+        <div class="row justify-content-md-center mt-4">
+          <div class="col-1  ">
+            <button class="btn btn-outline-dark" type="submit">Enviar</button>
+          </div>
+        </div>
+      </form>
+      </div>
+      <div class=" mt-4 text-center  row justify-content-md-center">
+        <div class="col-1r">
+          <a class="btn btn-outline-dark me-4" href="<%= detailUrlBase %>/productos">Ir a los productos </a>
+        </div>
+      </div>
+      <div class="container mt-5 pt-5 pb-5">
+        <h2>Ejemplos de imagenes a agregar</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item img-prueba"
+            value="https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_keyboard-512.png ">
+            https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_keyboard-512.png <img
+              src="https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_keyboard-512.png" alt=""></li>
+          <li class="list-group-item img-prueba">
+            https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_computer-512.png <img
+              src="https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_computer-512.png" alt=""></li>
+          <li class="list-group-item img-prueba">
+            https://cdn2.iconfinder.com/data/icons/flat-set-2/64/flat_set_2-09-512.png <img
+              src="https://cdn2.iconfinder.com/data/icons/flat-set-2/64/flat_set_2-09-512.png" alt=""></li>
+          <li class="list-group-item img-prueba">
+            https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/input-mouse-512.png <img
+              src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/input-mouse-512.png" alt=""></li>
+
+        </ul>
+      </div>
+    </main>
+    <%- include('partials/links-cdn-js-footer') %>
