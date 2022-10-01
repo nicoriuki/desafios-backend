@@ -1,0 +1,21 @@
+img {
+      width: 25px;
+      height: auto;
+}
+.contenedorMensajes {
+      background-color: beige;
+      height: 400px;
+      width: 500px;
+      overflow-y: scroll;
+}
+.email {
+      font-weight: bold;
+      color: blue;
+}
+.fecha {
+      color: brown;
+}
+.mensaje {
+      font-style: italic;
+      color: green;
+}

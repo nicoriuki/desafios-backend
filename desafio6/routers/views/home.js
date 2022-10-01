@@ -1,5 +1,5 @@
 const { Router } = require("express");
-
+const ProductsController = require("../../controllers/ProductsController");
 const router = Router();
 
 router.get("/", (req, res, next) => {
@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
                   isEmpty: !products.length,
                   detailUrlBase: process.env.BASE_HOST,
             };
-            res.render("form", data);
+            res.render("home", data);
       } catch (error) {
             next(error);
       }
