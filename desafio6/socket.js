@@ -1,11 +1,11 @@
 const { Server } = require("socket.io");
-const Contenedor = require("./controllers/mensajes");
+const MessageController = require("./controllers/MessageController");
 
-const guardarMensajes = new Contenedor("./mensajes.txt");
-
+const handlerMessage = new MessageController("./mensajes.txt");
+/* se define la varible io*/
 let io;
-
-let productos = [
+/* se cargan 2 productos par aque la tabla no este vacia*/
+let products = [
       {
             title: "Mouse",
             price: 532.21,
@@ -19,46 +19,48 @@ let productos = [
                   "https://cdn2.iconfinder.com/data/icons/flat-set-2/64/flat_set_2-09-512.png",
       },
 ];
-let mensajes = [
-      {
-            mensaje: "Bienvenido",
-            email: "Server@server",
-            fecha: "30/9/2022, 11:39:48",
-            id: 1,
-      },
-];
+/* funcion para iniciar el socket.io*/
 function initSocket(httpServer) {
       io = new Server(httpServer);
       setEvents(io);
 }
-
+/* funcion para los eventos de  el socket.io*/
 async function setEvents(io) {
-      /* const mmm = await guardarMensajes.getAll(); */
-      /*   mensajes = await guardarMensajes.getAll(); */
+      /* conencion del cliente*/
       io.on("connect", (socketClient) => {
+            /* funcion para leer los mensajes del archivo*/
+            async function updateMessage() {
+                  await handlerMessage.getAll().then((data) => {
+                        socketClient.emit("history-message", data);
+                  });
+            }
             console.log(
                   "Se conecto un nuevo cliente con el id",
                   socketClient.id
             );
-
-            socketClient.emit("history-message", mensajes);
+            updateMessage();
+            /* se recibe nuevo mensaje*/
             socketClient.on("new-message", (data) => {
-                  /* mensajes = []; */
-                  mensajes.push(data);
-                  /*   guardarMensajes.save(data); */
-                  /*      console.log(mensajes); */
-
-                  io.emit("notification", mensajes);
+                  /* se guarda el mensaje*/
+                  handlerMessage.save(data);
+                  /* y se emite al cliente*/
+                  io.emit("notification-message", data);
             });
-            socketClient.on("new-escribiendo", (data) => {
-                  io.emit("escribe", data);
+            /* se recibe el mail del cliente que escribe*/
+            socketClient.on("new-isWriting", (data) => {
+                  /* se emite el mail del cliente que escribe*/
+                  io.emit("IsWriting", data);
             });
-            socketClient.emit("history-productos", productos);
+            /* se envian los productos*/
+            socketClient.emit("history-products", products);
+            /* se recibe un nuevo producto*/
             socketClient.on("new-product", (data) => {
-                  console.log(socketClient.id);
-                  productos.push(data);
+                  /* se guarda el producto en la variable*/
+                  products.push(data);
+                  /* y se emite*/
                   io.emit("notification-product", data);
             });
+            /* se avisa si se desconecto el cliente*/
             socketClient.on("disconnect", () => {
                   console.log(
                         "Se desconecto el cliente con el id",
@@ -67,7 +69,7 @@ async function setEvents(io) {
             });
       });
 }
-
+/*funcion para emitir*/
 function emit(event, data) {
       io.emit(event, data);
 }

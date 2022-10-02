@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const apiRouters = require("./routers/api");
 const viewsRouters = require("./routers/views");
 const hbs = require("hbs");
 const http = require("http");
@@ -18,7 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
-app.use("/api", apiRouters);
 app.use("/", viewsRouters);
 const server = http.createServer(app);
 initSocket(server);

@@ -2,9 +2,9 @@ img {
       width: 25px;
       height: auto;
 }
-.contenedorMensajes {
+.messageContainer {
       background-color: beige;
-      height: 400px;
+      height: 300px;
       width: 500px;
       overflow-y: scroll;
 }
@@ -12,10 +12,17 @@ img {
       font-weight: bold;
       color: blue;
 }
-.fecha {
+.date {
       color: brown;
 }
-.mensaje {
+.message {
       font-style: italic;
       color: green;
+}
+.error {
+      color: red;
+      border-color: red;
+}
+.error:focus {
+      border-color: red;
 }

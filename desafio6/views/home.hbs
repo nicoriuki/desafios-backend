@@ -6,8 +6,8 @@
       <form 
         class="row g-3 flex-column was-validated justify-content-center align-items-center mt-5" id="formProduct"novalidate>
         <div class="form-floating col-md-4">
-          <input type="text" class="form-control" id="nombreProduct" placeholder="Nombre" name="title" required>
-          <label for="nombreProduct">Nombre</label>
+          <input type="text" class="form-control" id="nameProduct" placeholder="Nombre" name="title" required>
+          <label for="nameProduct">Nombre</label>
         </div>
         <div class="form-floating col-md-4">
 
@@ -38,9 +38,9 @@
       <table class="table table-dark table-striped">
         <thead>
           <tr>
-            <th scope="col">nombre</th>
-            <th scope="col">precio</th>
-            <th scope="col">imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
           </tr>
         </thead>
         <tbody id="tableProducts">
@@ -55,12 +55,12 @@
 <div class="row g-3 flex-column was-validated justify-content-center align-items-center mt-5">
 <h2 class="col-md-4">Centro de mensajes</h2>
 <input type="email"  id="emailUser" placeholder="Ingrese su email" class="form-floating col-md-4">
-<div class="contenedorMensajes">
-<ul id="listaMensajes"></ul>
+<div class="messageContainer" id="messageContainer">
+<ul id="listMessage"></ul>
 </div>
-<div id="estaEscribiendo" class="col-md-4"> .</div>
-<form id="formMensaje" class="form-floating col-md-4">
-  <input type="text" id="mensaje" placeholder="escriba su mensaje">
+<div id="isWriting" class="col-md-4"> .</div>
+<form id="formMessage" class="form-floating col-md-4">
+  <input type="text" id="inputMessage" placeholder="escriba su mensaje">
   <button class="btn btn-outline-dark" type="submit">Enviar</button>
 </form>
 </div>
