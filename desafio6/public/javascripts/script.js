@@ -10,11 +10,14 @@
             formMessage = d.getElementById("formMessage"),
             inputMessage = d.getElementById("inputMessage"),
             isWriting = d.getElementById("isWriting"),
+            btnMessage = d.getElementById("btnMessage"),
+            enterEmail = d.getElementById("enterEmail"),
             messageContainer = d.getElementById("messageContainer"),
             listMessage = d.getElementById("listMessage");
       /*se definen las variables que van a almacenar los mensaje y productos */
       let products = [],
             messages = [];
+
       /*se conecta al socket.io */
       const socket = io("/");
       /*funcion para mostrar productos en el DOM */
@@ -42,9 +45,13 @@
             const regexEmail = /\S+@\S+\.\S+/;
             if (emailUser.value === "" || !regexEmail.test(emailUser.value)) {
                   emailUser.classList.add("error");
+                  btnMessage.classList.add("hidden");
+                  enterEmail.classList.remove("hidden");
                   return false;
             } else {
                   emailUser.classList.remove("error");
+                  btnMessage.classList.remove("hidden");
+                  enterEmail.classList.add("hidden");
 
                   return true;
             }
@@ -88,8 +95,6 @@
                   socket.emit("new-message", data);
                   inputMessage.value = "";
                   inputMessage.focus();
-            } else {
-                  alert("ingrese un email valido");
             }
       });
       socket.on("connect", () => {

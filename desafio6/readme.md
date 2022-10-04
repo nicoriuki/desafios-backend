@@ -21,5 +21,5 @@ npm start
 ## Ejecutar en Test
 
 ```sh
-npm run test
+npm run dev:wait  o npm run dev
 ```

@@ -26,3 +26,6 @@ img {
 .error:focus {
       border-color: red;
 }
+.hidden {
+      display: none;
+}
