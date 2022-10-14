@@ -97,6 +97,7 @@ export async function get(table, base) {
             knexInstance.destroy();
       }
 }
+/* funcion para obtener por id*/
 export async function getById(table, base, id) {
       const knexInstance = knex(eval(base));
       try {
