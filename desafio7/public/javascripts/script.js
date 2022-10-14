@@ -5,7 +5,10 @@
             tableProducts = d.getElementById('tableProducts'),
             nameProduct = d.getElementById('nameProduct'),
             priceProduct = d.getElementById('priceProduct'),
+            codProduct = d.getElementById('codProduct'),
+            stockProduct = d.getElementById('stockProduct'),
             imgProduct = d.getElementById('imgProduct'),
+            idProduct = d.getElementById('idProduct'),
             emailUser = d.getElementById('emailUser'),
             formMessage = d.getElementById('formMessage'),
             inputMessage = d.getElementById('inputMessage'),
@@ -18,6 +21,8 @@
       let products = [],
             messages = [];
 
+      d.addEventListener('DOMContentLoaded', (e) => {});
+
       /*se conecta al socket.io */
       const socket = io('/');
       /*funcion para mostrar productos en el DOM */
@@ -25,9 +30,41 @@
             const tr = d.createElement('tr');
             tr.innerHTML = `<th>${data.nombre}</th>
   <td>$${data.precio}</td>
-  <td><img src="${data.imagen}" alt="${data.nombre}"></td>`;
+  <td><img src="${data.imagen}" alt="${data.nombre}"></td>
+  <td>${data.codigo}</td>
+  <td>${data.stock}</td>
+  <td><img src="https://cdn4.iconfinder.com/data/icons/general-office/91/General_Office_09-512.png" alt="editar" class="editar" id="${data.id}"/> <img src="https://cdn4.iconfinder.com/data/icons/digital-marketing-7-2/35/303-512.png" alt="borrar" class="borrar" id="${data.id}"/></td>`;
             tableProducts.appendChild(tr);
       }
+
+      function deleteProducts(id) {
+            let isOk = confirm(
+                  `Esta seguro de borrar el producto con id ${id}`
+            );
+            isOk && socket.emit('delete-product', id);
+      }
+      d.addEventListener('click', (e) => {
+            if (e.target.matches('.borrar')) {
+                  deleteProducts(e.target.id);
+            }
+      });
+      async function editProducts(id) {
+            await socket.emit('getId-product', id);
+            await socket.on('one-product', (data) => {
+                  nameProduct.value = data.nombre;
+                  priceProduct.value = data.precio;
+                  imgProduct.value = data.imagen;
+                  codProduct.value = data.codigo;
+                  stockProduct.value = data.stock;
+                  idProduct.value = data.id;
+                  nameProduct.focus();
+            });
+      }
+      d.addEventListener('click', (e) => {
+            if (e.target.matches('.editar')) {
+                  editProducts(e.target.id);
+            }
+      });
       /*funcion para mostrar mensajes en el DOM */
       function showMessage(data) {
             const li = d.createElement('li');
@@ -71,16 +108,35 @@
       });
       formProduct.addEventListener('submit', (event) => {
             event.preventDefault();
-            const data = {
-                  nombre: nameProduct.value,
-                  precio: priceProduct.value,
-                  imagen: imgProduct.value,
-            };
-            socket.emit('new-product', data);
+            if (idProduct.value.length != 0) {
+                  const data = {
+                        nombre: nameProduct.value,
+                        precio: priceProduct.value,
+                        imagen: imgProduct.value,
+                        codigo: codProduct.value,
+                        stock: stockProduct.value,
+                        id: idProduct.value,
+                  };
+
+                  socket.emit('edit-product', data);
+            } else {
+                  const data = {
+                        nombre: nameProduct.value,
+                        precio: priceProduct.value,
+                        imagen: imgProduct.value,
+                        codigo: codProduct.value,
+                        stock: stockProduct.value,
+                  };
+
+                  socket.emit('new-product', data);
+            }
 
             nameProduct.value = '';
             priceProduct.value = '';
             imgProduct.value = '';
+            codProduct.value = '';
+            stockProduct.value = '';
+            idProduct.value = '';
             nameProduct.focus();
       });
       formMessage.addEventListener('submit', (event) => {
@@ -100,16 +156,20 @@
       socket.on('connect', () => {
             console.log('Conectados al servidor');
       });
+
       inputMessage.addEventListener('keyup', (e) => {
             socket.emit('new-isWriting', emailUser.value);
       });
-      socket.on('history-products', (data) => {
-            products = data;
-            tableProducts.innerHTML = '';
-            products.forEach((producto) => {
-                  showProducts(producto);
+      const obtener = async () => {
+            await socket.on('history-products', (data) => {
+                  products = data;
+                  tableProducts.innerHTML = '';
+                  products.forEach((producto) => {
+                        showProducts(producto);
+                  });
             });
-      });
+      };
+      obtener();
       socket.on('history-message', (data) => {
             messages = data;
             listMessage.innerHTML = '';
