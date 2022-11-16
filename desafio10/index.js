@@ -21,7 +21,7 @@ app.use(
                   mongoUrl: process.env.MONGO_URL,
                   ttl: 600,
             }),
-            secret: '82Xl^h2L82bH',
+            secret: '32Zk^r1G82bH',
             resave: true,
             saveUninitialized: true,
       })
