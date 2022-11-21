@@ -33,7 +33,7 @@ router.post('/logout', (req, res) => {
                   let data = { user: username };
                   res.render('logout', data);
             } else {
-                  res.send('Ocurrio un error', error.message);
+                  res.send('Ocurrio un  error', error.message);
             }
       });
 });
