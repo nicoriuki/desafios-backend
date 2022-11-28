@@ -17,12 +17,16 @@ router.post(
       passport.authenticate('sign-in', {
             successRedirect: '/',
             failureRedirect: '/faillogin',
-      }),
-      (req, res) => {
+            failureMessage: true,
+      })
+      /*  (req, res) => {
+         
             res.redirect('/');
-      }
+      } */
 );
 router.get('/faillogin', (req, res) => {
+      console.log(req.session.messages);
+      req.session.messages = [];
       res.render('faillogin');
 });
 

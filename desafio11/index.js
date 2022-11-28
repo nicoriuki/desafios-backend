@@ -7,16 +7,29 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import { initSocket } from './socket.js';
 import viewsRouters from './routers/views/index.js';
+import apiRouters from './routers/api/index.js';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import bcrypt from 'bcrypt';
 import UserModel from './model/user.js';
+import minimist from 'minimist';
 
 const salt = bcrypt.genSaltSync(10);
 
 const app = express();
 
-const PORT = process.env.PORT;
+const opts = {
+      default: {
+            puerto: 0,
+      },
+      alias: {
+            p: 'puerto',
+      },
+};
+
+const params = minimist(process.argv.slice(2), opts);
+
+const PORT = params.puerto || 8080;
 const ENV = process.env.ENV;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,7 +48,9 @@ passport.use(
                                           `User with ${email} not found.`
                                     );
 
-                                    return done(null, false);
+                                    return done(null, false, {
+                                          message: `El usuario ${email} no fue encontrado`,
+                                    });
                               }
 
                               if (
@@ -43,14 +58,15 @@ passport.use(
                               ) {
                                     console.log('Invalid Password');
 
-                                    return done(null, false);
+                                    return done(null, false, {
+                                          message: 'Contraseña invalida',
+                                    });
                               }
                               done(null, user);
                         })
                         .catch((error) => {
-                              console.log('Error in sign-in', error.message);
-
-                              done(error, false);
+                              console.log('Error in login\n', error.message);
+                              done(error);
                         });
             }
       )
@@ -138,6 +154,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use('/', viewsRouters);
+app.use('/api', apiRouters);
 const server = http.createServer(app);
 initSocket(server);
 

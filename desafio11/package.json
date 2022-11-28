@@ -7,7 +7,7 @@
       "scripts": {
             "start": "node index.js",
             "dev": "node -r dotenv/config index.js",
-            "dev:wait": "nodemon --exec node -r dotenv/config ./index.js"
+            "dev:wait": "nodemon --exec node -r dotenv/config ./index.js -p 8080"
       },
       "author": "",
       "license": "ISC",
@@ -21,6 +21,8 @@
             "express-session": "^1.17.3",
             "hbs": "^4.2.0",
             "knex": "^2.3.0",
+            "lodash": "^4.17.21",
+            "minimist": "^1.2.7",
             "mongoose": "^6.7.1",
             "mysql": "^2.18.1",
             "normalizr": "^3.6.2",
