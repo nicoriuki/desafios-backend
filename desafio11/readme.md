@@ -39,12 +39,6 @@ http://localhost:8080/info
 Poner la cantidad de numeros a calcular
 http://localhost:8080/random.html
 
-## Ejecutar en producción
-
-```sh
-npm start
-```
-
 ## Ejecutar en Test
 
 ```sh
