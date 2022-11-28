@@ -6,7 +6,10 @@ enviar = d.getElementById('enviar');
 
 enviar.addEventListener('click', (e) => {
       e.preventDefault();
+      lista.innerHTML = '';
+
       loader.classList.add('loader');
+
       fetch(`http://localhost:8080/api/random?cant=${cantidad.value}`)
             .then((res) => res.json())
             .then((json) => {
@@ -17,6 +20,6 @@ enviar.addEventListener('click', (e) => {
                         lista.appendChild(li);
                   });
             })
-
             .catch((err) => err);
+      cantidad.value = '';
 });
