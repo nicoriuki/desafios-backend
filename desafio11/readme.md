@@ -10,7 +10,7 @@ NODE_ENV=local
 BASE_HOST=http://localhost:8080
 MONGO_URL
 
-variables para usar mysql
+variables para usar mysql para la tabla de productos
 DB_NAME
  DB_HOST
  DB_PORT
