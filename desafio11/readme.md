@@ -42,5 +42,7 @@ http://localhost:8080/random.html
 ## Ejecutar en Test
 
 ```sh
-npm run dev:wait  o npm run dev
+npm run dev:wait  -p 8080
 ```
+
+o elegir el puerto que se desee
