@@ -26,7 +26,7 @@ const opts = {
             mode: 'fork',
       },
       alias: {
-            p: 'puerto',
+            p: 'port',
             m: 'mode',
       },
 };
