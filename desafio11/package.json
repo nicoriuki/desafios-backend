@@ -7,7 +7,7 @@
       "scripts": {
             "start": "node index.js",
             "dev": "node -r dotenv/config index.js",
-            "dev:wait": "nodemon --exec node -r dotenv/config ./index.js -p 8080"
+            "dev:wait": "nodemon --exec node -r dotenv/config ./index.js"
       },
       "author": "",
       "license": "ISC",

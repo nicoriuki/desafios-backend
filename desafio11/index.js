@@ -20,7 +20,7 @@ const app = express();
 
 const opts = {
       default: {
-            puerto: 0,
+            puerto: 8080,
       },
       alias: {
             p: 'puerto',
@@ -29,7 +29,7 @@ const opts = {
 
 const params = minimist(process.argv.slice(2), opts);
 
-const PORT = params.puerto || 8080;
+const PORT = params.puerto;
 const ENV = process.env.ENV;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

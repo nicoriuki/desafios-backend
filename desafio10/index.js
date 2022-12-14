@@ -22,6 +22,7 @@ app.use(
                   ttl: 600,
             }),
             secret: '32Zk^r1G82bH',
+
             resave: true,
             saveUninitialized: true,
       })

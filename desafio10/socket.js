@@ -32,11 +32,11 @@ async function setEvents(io) {
       /* conencion del cliente*/
       io.on('connect', async (socketClient) => {
             /*  lee los mensajes de la Base de datos*/
-        
+
             const dataMensajes = await Mensaje.getAll();
             const mensajes = await Normalizador(dataMensajes);
             io.emit('history-message', mensajes);
-    
+
             /*  lee los productos de la Base de datos*/
             await get('productos', 'mysql').then((data) => {
                   io.emit('history-products', data);
