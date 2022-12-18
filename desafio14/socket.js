@@ -1,27 +1,10 @@
 import { Server } from 'socket.io';
-import {
-      createTableProduct,
-      createTableMessage,
-      insert,
-      get,
-      update,
-      delet,
-      getById,
-} from './controllers/DbController.js';
-import { Mensaje } from './daos/index.js';
-
-import util from 'util';
+import { Mensaje, Producto } from './daos/index.js';
 import { Normalizador } from './controllers/NormalizerController.js';
 
 /* se define la varible io*/
 let io;
 
-try {
-      /*    await createTableMessage(); */
-      await createTableProduct();
-} catch (error) {
-      console.error(error.message);
-}
 /* funcion para iniciar el socket.io*/
 function initSocket(httpServer) {
       io = new Server(httpServer);
@@ -38,7 +21,7 @@ async function setEvents(io) {
             io.emit('history-message', mensajes);
 
             /*  lee los productos de la Base de datos*/
-            await get('productos', 'mysql').then((data) => {
+            await Producto.getAll().then((data) => {
                   io.emit('history-products', data);
             });
 
@@ -46,13 +29,11 @@ async function setEvents(io) {
                   'Se conecto un nuevo cliente con el id',
                   socketClient.id
             );
-
             /* se recibe nuevo mensaje*/
             socketClient.on('new-message', async (data) => {
                   /* se guarda el mensaje*/
 
                   await Mensaje.postItem(data);
-                  /* await insert(data, 'message', 'sqlite'); */
 
                   /* y se emite al cliente*/
 
@@ -68,45 +49,36 @@ async function setEvents(io) {
             /* se recibe un nuevo producto*/
             socketClient.on('new-product', async (data) => {
                   /* se guarda el producto en la Base de Datos*/
-
-                  await insert(data, 'productos', 'mysql');
+                  await Producto.postItem(data);
 
                   /* y se emite*/
-                  io.emit('notification-product', data);
+                  await Producto.getAll().then((data) => {
+                        io.emit('history-products', data);
+                  });
             });
             socketClient.on('delete-product', async (data) => {
                   /* se borrar el producto en la Base de Datos*/
+                  await Producto.deleteItem(data);
 
-                  await delet({ id: data }, 'productos', 'mysql');
                   /* se vuelven enviar los productos */
-                  await get('productos', 'mysql').then((data) => {
+                  await Producto.getAll().then((data) => {
                         io.emit('history-products', data);
                   });
             });
             /* se piden un producto por la id */
             socketClient.on('getId-product', async (data) => {
                   let productId = [];
+                  productId = await Producto.getById(data);
 
-                  productId = await getById('productos', 'mysql', data);
                   /* se envia todos los datos del producto por id*/
                   io.emit('one-product', productId);
             });
             /* se edita el producto en la Base de Datos*/
             socketClient.on('edit-product', async (data) => {
-                  await update(
-                        {
-                              nombre: data.nombre,
-                              precio: data.precio,
-                              imagen: data.imagen,
-                              codigo: data.codigo,
-                              stock: data.stock,
-                        },
-                        { id: data.id },
-                        'productos',
-                        'mysql'
-                  );
+                  await Producto.putItem(data.id, data);
+
                   /* se vuelven enviar los productos */
-                  await get('productos', 'mysql').then((data) => {
+                  await Producto.getAll().then((data) => {
                         io.emit('history-products', data);
                   });
             });

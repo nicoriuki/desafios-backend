@@ -1,11 +1,14 @@
-let Mensaje;
-
+let Mensaje, Producto;
 switch ('mongodb') {
       case 'mongodb':
             const { default: MensajesDaosMongoDb } = await import(
                   './mensajes/MensajesDaosMongodb.js'
             );
             Mensaje = new MensajesDaosMongoDb();
+            const { default: ProductosDaosMongoDb } = await import(
+                  './productos/ProductosDaosMongodb.js'
+            );
+            Producto = new ProductosDaosMongoDb();
 
             await Mensaje.connect();
             break;
@@ -13,4 +16,4 @@ switch ('mongodb') {
       default:
             break;
 }
-export { Mensaje };
+export { Mensaje, Producto };

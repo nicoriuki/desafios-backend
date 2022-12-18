@@ -186,10 +186,15 @@ if (mode === 'cluster' && cluster.isPrimary) {
       app.use('/', viewsRouters);
       app.use('/api', apiRouters);
 
-      app.get('*', function (req, res) {
-            logger.warn(`Ruta ${req.path} metodo GET`);
-            res.status(404).send(`${req.path} ruta inexistente`);
+      app.use('*', (req, res, next) => {
+            logger.warn(
+                  `Ruta: ${req.originalUrl} - Metodo: ${req.method} - Ruta inexistente.`
+            );
+            res.status(404).send(
+                  `Ruta: ${req.originalUrl} - Metodo: ${req.method} - Ruta inexistente.`
+            );
       });
+
       const server = http.createServer(app);
       initSocket(server);
 

@@ -15,7 +15,7 @@ const showProducts = (data) => {
   <td><img src="${data.imagen}" alt="${data.nombre}"></td>
   <td>${data.codigo}</td>
   <td>${data.stock}</td>
-  <td><img src="https://cdn4.iconfinder.com/data/icons/general-office/91/General_Office_09-512.png" alt="editar" class="editar" id="${data.id}"/> <img src="https://cdn4.iconfinder.com/data/icons/digital-marketing-7-2/35/303-512.png" alt="borrar" class="borrar" id="${data.id}"/></td>`;
+  <td><img src="https://cdn4.iconfinder.com/data/icons/general-office/91/General_Office_09-512.png" alt="editar" class="editar" id="${data._id}"/> <img src="https://cdn4.iconfinder.com/data/icons/digital-marketing-7-2/35/303-512.png" alt="borrar" class="borrar" id="${data._id}"/></td>`;
       tableProducts.appendChild(tr);
 };
 
@@ -25,7 +25,7 @@ const editProductForm = (data) => {
       imgProduct.value = data.imagen;
       codProduct.value = data.codigo;
       stockProduct.value = data.stock;
-      idProduct.value = data.id;
+      idProduct.value = data._id;
       nameProduct.focus();
 };
 
