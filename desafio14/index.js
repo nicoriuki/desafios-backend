@@ -186,7 +186,7 @@ if (mode === 'cluster' && cluster.isPrimary) {
       app.use('/', viewsRouters);
       app.use('/api', apiRouters);
 
-      app.use('*', (req, res, next) => {
+      app.use('*', (req, res) => {
             logger.warn(
                   `Ruta: ${req.originalUrl} - Metodo: ${req.method} - Ruta inexistente.`
             );
