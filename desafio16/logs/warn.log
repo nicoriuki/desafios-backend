@@ -1,0 +1,9 @@
+
+{"level":"warn","message":"Ruta: /undefined - Metodo: GET - Ruta inexistente.","timestamp":"2023-01-08 17:47:18"}
+{"level":"warn","message":"User with nico@nico.comerer not found.","timestamp":"2023-01-08 17:58:54"}
+{"level":"warn","message":"Invalid Password","timestamp":"2023-01-08 18:04:46"}
+{"level":"warn","message":"User nico@nico.com already exists.","timestamp":"2023-01-08 18:09:42"}
+{"level":"error","message":"Error in sign-up , User already exists","timestamp":"2023-01-08 18:09:42"}
+{"level":"warn","message":"User nico@nico.com already exists.","timestamp":"2023-01-08 18:09:46"}
+{"level":"error","message":"Error in sign-up , User already exists","timestamp":"2023-01-08 18:09:46"}
+{"level":"warn","message":"User with nico@nico.comwe not found.","timestamp":"2023-01-08 18:14:24"}
