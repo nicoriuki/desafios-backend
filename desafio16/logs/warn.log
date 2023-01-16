@@ -7,3 +7,4 @@
 {"level":"warn","message":"User nico@nico.com already exists.","timestamp":"2023-01-08 18:09:46"}
 {"level":"error","message":"Error in sign-up , User already exists","timestamp":"2023-01-08 18:09:46"}
 {"level":"warn","message":"User with nico@nico.comwe not found.","timestamp":"2023-01-08 18:14:24"}
+{"level":"warn","message":"Ruta: /aererer - Metodo: GET - Ruta inexistente.","timestamp":"2023-01-08 19:26:04"}

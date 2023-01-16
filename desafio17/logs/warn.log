@@ -1,0 +1,24 @@
+
+{"level":"warn","message":"Ruta: /undefined - Metodo: GET - Ruta inexistente.","timestamp":"2023-01-08 17:47:18"}
+{"level":"warn","message":"User with nico@nico.comerer not found.","timestamp":"2023-01-08 17:58:54"}
+{"level":"warn","message":"Invalid Password","timestamp":"2023-01-08 18:04:46"}
+{"level":"warn","message":"User nico@nico.com already exists.","timestamp":"2023-01-08 18:09:42"}
+{"level":"error","message":"Error in sign-up , User already exists","timestamp":"2023-01-08 18:09:42"}
+{"level":"warn","message":"User nico@nico.com already exists.","timestamp":"2023-01-08 18:09:46"}
+{"level":"error","message":"Error in sign-up , User already exists","timestamp":"2023-01-08 18:09:46"}
+{"level":"warn","message":"User with nico@nico.comwe not found.","timestamp":"2023-01-08 18:14:24"}
+{"level":"warn","message":"Ruta: /aererer - Metodo: GET - Ruta inexistente.","timestamp":"2023-01-08 19:26:04"}
+{"level":"warn","message":"Ruta: /api/carrito/?user=jennyrc2@gmail.com - Metodo: GET - Ruta inexistente.","timestamp":"2023-01-15 15:13:43"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:26:19"}
+{"level":"error","message":"[deleteItem] ContenedorMongoDb, no se encontro  el id undefined","timestamp":"2023-01-15 19:26:30"}
+{"level":"error","message":"[deleteItem] ContenedorMongoDb, no se encontro  el id undefined","timestamp":"2023-01-15 19:26:36"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:35:44"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:36:28"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:36:57"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:37:35"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:38:40"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:39:19"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:40:38"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:43:26"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:45:36"}
+{"level":"error","message":"[getById] ContenedorMongoDb, Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Producto\"","timestamp":"2023-01-15 19:46:34"}
