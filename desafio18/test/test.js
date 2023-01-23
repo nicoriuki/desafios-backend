@@ -30,8 +30,7 @@ describe('Productos', () => {
       it('Deberia obtener todos los productos', async () => {
             const response = await request(app).get('/api/productos');
             expect(response.statusCode).to.be.eq(200);
-            /* expect(response.body).to.be.eq('--TEST--');
-             */
+            expect(response.body).to.be.an('array');
       });
       it('Deberia Crear un producto', async () => {
             const response = await request(app).post('/api/productos').send({
@@ -43,6 +42,13 @@ describe('Productos', () => {
             });
             id = response.body.id;
             expect(response.statusCode).to.be.eq(201);
+            expect(response.status).to.eql(201);
+            expect(response.body).to.have.property('nombre');
+            expect(response.body).to.have.property('codigo');
+            expect(response.body).to.have.property('stock');
+            expect(response.body).to.have.property('precio');
+            expect(response.body).to.have.property('imagen');
+            expect(response.body.id).to.be.eq(id);
       });
 
       it('Deberia obtener por id un  producto', async () => {
