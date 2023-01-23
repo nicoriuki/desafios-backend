@@ -42,7 +42,6 @@ describe('Productos', () => {
             });
             id = response.body.id;
             expect(response.statusCode).to.be.eq(201);
-            expect(response.status).to.eql(201);
             expect(response.body).to.have.property('nombre');
             expect(response.body).to.have.property('codigo');
             expect(response.body).to.have.property('stock');
