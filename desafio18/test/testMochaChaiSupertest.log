@@ -1,0 +1,10 @@
+{"level":"info","message":{"duration":826,"state":"failed","title":"Deberia obtener todos los productos"},"timestamp":"2023-01-23 20:53:45"}
+{"level":"info","message":{"duration":90,"state":"passed","title":"Deberia Crear un producto"},"timestamp":"2023-01-23 20:53:45"}
+{"level":"info","message":{"duration":44,"state":"passed","title":"Deberia obtener por id un  producto"},"timestamp":"2023-01-23 20:53:45"}
+{"level":"info","message":{"duration":89,"state":"passed","title":"Deberia Editar un producto"},"timestamp":"2023-01-23 20:53:45"}
+{"level":"info","message":{"duration":129,"state":"passed","title":"Deberia Eliminar un producto"},"timestamp":"2023-01-23 20:53:45"}
+{"level":"info","message":{"duration":600,"state":"failed","title":"Deberia obtener todos los productos"},"timestamp":"2023-01-23 20:54:44"}
+{"level":"info","message":{"duration":135,"state":"passed","title":"Deberia Crear un producto"},"timestamp":"2023-01-23 20:54:44"}
+{"level":"info","message":{"duration":45,"state":"passed","title":"Deberia obtener por id un  producto"},"timestamp":"2023-01-23 20:54:44"}
+{"level":"info","message":{"duration":95,"state":"passed","title":"Deberia Editar un producto"},"timestamp":"2023-01-23 20:54:44"}
+{"level":"info","message":{"duration":129,"state":"passed","title":"Deberia Eliminar un producto"},"timestamp":"2023-01-23 20:54:44"}
