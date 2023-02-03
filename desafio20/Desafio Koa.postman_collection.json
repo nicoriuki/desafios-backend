@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "18151feb-47e0-4b7d-aa6b-dc0c7c8d8a95",
+		"name": "Desafio Koa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16084421"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nombre\": \"Tecladofghsdfefegh\",\r\n    \"codigo\": \"123456\",\r\n    \"imagen\": \"https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_keyboard-512.png\",\r\n    \"precio\": 23456,\r\n    \"stock\": 23\r\n        \r\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n     \r\n      \"id\": \"fggf\",\r\n    \"nombre\": \"Teclaa\",\r\n    \"codigo\": \"123456\",\r\n    \"imagen\": \"https://cdn3.iconfinder.com/data/icons/technology-13/48/tech-color_keyboard-512.png\",\r\n    \"precio\": 23456,\r\n    \"stock\": 23\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/productosa/63dc3fd707553ae39d273c56yuiui",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productosa",
+						"63dc3fd707553ae39d273c56yuiui"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
